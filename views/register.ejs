@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', {pageTitle}) %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <% if (errorMessage) { %>
+            <p><%= errorMessage %></p>
+            <% } %>
+        <h3>Register</h3>
+        <form action="/register" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <label for="username">username</label>
+            <input type="text" name="username" id="username">
+            <label for="email">email</label>
+            <input type="email" id="email" name="email">
+            <label for="password">password</label>
+            <input type="password" id="password" name="password">
+            <label for="confirmpassword">confirm password</label>
+            <input type="password" id="confirmpassword" name="confirmpassword">
+            <button type="submit">Registreer</button>
+        </form>
+    </body>
+</html>

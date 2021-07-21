@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', {pageTitle}) %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <% if (errorMessage) { %>
+            <p><%= errorMessage %></p>
+            <% } %>
+        <h3>Login</h3>
+            <%- include('partials/loginPartial.ejs') %>
+    </body>
+</html>

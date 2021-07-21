@@ -1,0 +1,9 @@
+<form action="/login" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label for="username">username</label>
+    <input type="text" name="username" id="username">
+    <label for="password">password</label>
+    <input type="password" id="password" name="password">
+    <button type="submit">Log in</button>
+    <a href="/forgot" class="link-class">Forgot password?</a>
+</form>

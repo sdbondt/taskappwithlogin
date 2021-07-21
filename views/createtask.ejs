@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', {pageTitle}) %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <form action="/task/create" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <label for="title">Title</label>
+            <br>
+            <input type="text" id="title" name="title">
+            <br>
+            <label for="description">description</label>
+            <br>
+            <textarea rows="5" cols="33" id="description" name="description"></textarea>
+            <button type="submit">Add task</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', {pageTitle}) %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <% if (tasks.length === 0) { %>
+            <p>No tasks</p>
+        <% } else { %>
+            <% if (page>1) { %>
+                <a href="/task/mytasks/<%= page-1 %>" class="link-class">Prev</a>
+            <% } else { %> <p>First page</p> <% } %>
+            <div>
+                <span>Page <%= page %></span><span> of</span><span><%= pages %></span>
+            </div>
+            <% if (page< pages) { %>
+                <a href="/task/mytasks/<%= page+1 %>" class="link-class">Next</a>
+            <% } else { %> <p>Last page</p> <% } %>
+            <% tasks.forEach(task => { %>
+                <p><a href="/task/<%= task._id %>" class="link-class"><%= task.title %></a></p>
+            <% })} %>
+    </body>
+</html>

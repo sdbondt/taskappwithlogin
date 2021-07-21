@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', {pageTitle}) %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <% if (errorMessage) { %>
+            <p><%= errorMessage %></p>
+            <% } %>
+        <h3><%= user.username %>'s account</h3>
+        <form action="/update" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <label for="username">Change username?</label>
+            <input type="text" name="username" id="username" value="<%= user.username %>">
+            <label for="email">Change email?</label>
+            <input type="email" id="email" name="email" value="<%= user.email %>">
+            <label for="password">Change password?</label>
+            <input type="password" id="password" name="password">
+            <label for="confirmpassword">confirm password</label>
+            <input type="password" id="confirmpassword" name="confirmpassword">
+            <button type="submit">Update!</button>
+            <div>
+                <a href="/task/create" class="link-class"> 
+                    Create a task...
+                </a>
+            </div>
+            <div>
+                <a href="/task/mytasks" class="link-class">See your tasks</a>
+            </div>
+            <div>
+                <% if (user.image) { %>
+                    <img src="/image/60f49f008cd74c317ceb3691" alt="dsfdsfs">
+                    <a href="/image" class="link-class">Change image</a>
+                <% } else{ %>
+                    <a href="/image" class="link-class">Upload an image</a>
+                <% } %>
+            </div>
+        
+        </form>
+
+    </body>
+</html>

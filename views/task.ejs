@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head.ejs', {pageTitle}) %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <div>
+            <p><%= task.title %></p>
+            <p><%= task.description %></p>
+        </div>
+        <div>
+            <form action="/task/delete/<%= task._id %>" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit">Delete Task</button>
+            </form>
+        </div>
+    </body>
+</html>

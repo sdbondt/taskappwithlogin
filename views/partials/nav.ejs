@@ -1,0 +1,10 @@
+<nav>
+    <% if (!isAuthenticated) { %>
+        <span><a href="/login" class="link-class">Login</a></span>
+        <span><a href="/register" class="link-class">Register</a></span>
+    <% } else { %>
+    <span><a href="/account" class="link-class">Account</a></span>
+    <span><a href="/logout" class="link-class">Logout</a></span>
+    <span><a href="/task/mytasks" class="link-class">Tasks</a></span>
+    <% } %>
+</nav>
